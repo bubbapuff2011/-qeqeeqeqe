@@ -10,18 +10,8 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local Tab = Window:MakeTab({
-	Name = "Visual",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
 local Section = PlayerTab:AddSection({
 	Name = "Movement"
-})
-
-local Section = VisualTab:AddSection({
-	Name = "Esp"
 })
 
 PlayerTab:AddSlider({
@@ -48,6 +38,19 @@ PlayerTab:AddSlider({
 	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 	end    
+})
+
+-- Visual Tab
+
+local VisualTab = Window:MakeTab({
+	Name = "Visual",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+local Section = VisualTab:AddSection({
+	Name = "Esp"
 })
 
 VisualTab:AddButton({
