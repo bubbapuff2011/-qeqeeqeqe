@@ -10,7 +10,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local Section = Tab:AddSection({
+local Section = PlayerTab:AddSection({
 	Name = "Movement"
 })
 
@@ -46,7 +46,7 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local Section = Tab:AddSection({
+local Section = VisualTab:AddSection({
 	Name = "Esp"
 })
 
