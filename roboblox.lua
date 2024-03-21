@@ -57,17 +57,28 @@ VisualTab:AddButton({
 	Callback = function()
         for _, player in pairs(Players:GetPlayers()) do
             if player ~= Players.LocalPlayer then
-                Create('BoxHandleAdornment', Folder)
-                {
-                    Name = part.Name .. '_CHAM';
-                    Color3 = Settings['TCC'][2];
-                    AlwaysOnTop = true;
-                    Transparency = Settings['CT'];
-                    Visible = true;
-                    ZIndex = 10;
-                    
-                    Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25)) or (Vector3.new(.5, .5, .5) + part.Size)
-                }
+                local Target = Players:GetPlayerFromCharacter(char)
+				if (Target == Player) or (Target.TeamColor ~= Player.TeamColor) then return end
+				
+				local Folder = Chams['Team']:FindFirstChild(Target['Name'])
+					or Create('Folder', Chams['Team']){Name = Target['Name']}
+					
+				for __, part in next, (char:GetChildren()) do
+					if part:IsA('BasePart') then
+						Create('BoxHandleAdornment', Folder)
+						{
+							Name = part.Name .. '_CHAM';
+							Color3 = Settings['TCC'][2];
+							AlwaysOnTop = true;
+							Transparency = Settings['CT'];
+							Visible = true;
+							ZIndex = 10;
+							
+							Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25))
+								or (Vector3.new(.5, .5, .5) + part.Size)
+						}['Adornee'] = part
+					end
+				end
             end
         end
   	end    
