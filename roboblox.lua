@@ -74,9 +74,9 @@ VisualTab:AddButton({
 							Visible = true;
 							ZIndex = 10;
 							
-							Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25))
-								or (Vector3.new(.5, .5, .5) + part.Size)
-						}['Adornee'] = part
+							Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25)) or (Vector3.new(.5, .5, .5) + part.Size)
+						}
+                        ['Adornee'] = part
 					end
 				end
             end
