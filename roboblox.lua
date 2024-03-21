@@ -10,10 +10,8 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local Tab = Window:MakeTab({
-	Name = "Visual",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+local Section = Tab:AddSection({
+	Name = "Movement"
 })
 
 PlayerTab:AddSlider({
@@ -42,6 +40,16 @@ PlayerTab:AddSlider({
 	end    
 })
 
+local Tab = Window:MakeTab({
+	Name = "Visual",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Esp"
+})
+
 VisualTab:AddButton({
 	Name = "Chams",
 	Callback = function()
@@ -55,4 +63,3 @@ VisualTab:AddButton({
         loadstring(game:HttpGet("https://github.com/Blissful4992/ESPs/blob/main/2D%20Box%20ESP/ESP%20%2B%20Health%20Bars.lua"))()
   	end    
 })
-
