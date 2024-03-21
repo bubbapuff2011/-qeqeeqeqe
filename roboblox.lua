@@ -57,10 +57,17 @@ VisualTab:AddButton({
 	Callback = function()
         for _, player in pairs(Players:GetPlayers()) do
             if player ~= Players.LocalPlayer then
-              local character = player.Character
-              local highlight = character:FindFirstChild("Highlight")
-              highlight.Enabled = true
-              highlight.FillColor = Color3.fromHSV(0, 0, 255)
+                Create('BoxHandleAdornment', Folder)
+                {
+                    Name = part.Name .. '_CHAM';
+                    Color3 = Settings['TCC'][2];
+                    AlwaysOnTop = true;
+                    Transparency = Settings['CT'];
+                    Visible = true;
+                    ZIndex = 10;
+                    
+                    Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25)) or (Vector3.new(.5, .5, .5) + part.Size)
+                }
             end
         end
   	end    
