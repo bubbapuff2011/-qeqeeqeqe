@@ -59,10 +59,8 @@ VisualTab:AddButton({
             if player ~= Players.LocalPlayer then
               local character = player.Character
               local highlight = character:FindFirstChild("Highlight")
-              if highlight then
-                highlight.Enabled = true
-                highlight.FillColor = Color3.fromHSV(0, 0, 255)
-              end
+              highlight.Enabled = true
+              highlight.FillColor = Color3.fromHSV(0, 0, 255)
             end
         end
   	end    
