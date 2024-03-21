@@ -58,7 +58,6 @@ VisualTab:AddButton({
         for _, player in pairs(Players:GetPlayers()) do
             if player ~= Players.LocalPlayer then
                 local Target = Players:GetPlayerFromCharacter(char)
-				if (Target == Player) or (Target.TeamColor ~= Player.TeamColor) then return end
 				
 				local Folder = Chams['Team']:FindFirstChild(Target['Name'])
 					or Create('Folder', Chams['Team']){Name = Target['Name']}
