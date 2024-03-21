@@ -1,84 +1,44 @@
 -- Nigger Hub
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = OrionLib:MakeWindow({Name = "Porn hub v1", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = Rayfield:CreateWindow({
+    Name = "Ocean Hub",
+    LoadingTitle = "Ocean Hub V1.1.1",
+    LoadingSubtitle = "by Ocean Project",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Big Hub"
+    },
+    Discord = {
+       Enabled = false,
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = false, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided",
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
 
-local PlayerTab = Window:MakeTab({
-	Name = "Player",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
+ local PlayerTab = Window:CreateTab("Player", 4483362458) -- Title, Image
 
-local Section = PlayerTab:AddSection({
-	Name = "Movement"
-})
+ local Slider = PlayerTab:CreateSlider({
+    Name = "Walk Speed",
+    Range = {1, 100},
+    Increment = 1,
+    Suffix = "Speed",
+    CurrentValue = 16,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end,
+ })
 
-PlayerTab:AddSlider({
-	Name = "WalkSpeed",
-	Min = 16,
-	Max = 500,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "WS",
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-	end    
-})
-
-PlayerTab:AddSlider({
-	Name = "Jump Height",
-	Min = 16,
-	Max = 500,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Height",
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-	end    
-})
-
--- Visual Tab
-
-local VisualTab = Window:MakeTab({
-	Name = "Visual",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local Section = VisualTab:AddSection({
-	Name = "Esp"
-})
-
-VisualTab:AddButton({
-	Name = "Chams",
-	Callback = function()
-        for _, player in pairs(Players:GetPlayers()) do
-            if player ~= Players.LocalPlayer then
-                local Target = Players:GetPlayerFromCharacter(char)
-				
-				local Folder = Chams['Team']:FindFirstChild(Target['Name'])
-					or Create('Folder', Chams['Team']){Name = Target['Name']}
-					
-				for __, part in next, (char:GetChildren()) do
-					if part:IsA('BasePart') then
-						Create('BoxHandleAdornment', Folder)
-						{
-							Name = part.Name .. '_CHAM';
-							Color3 = Settings['TCC'][2];
-							AlwaysOnTop = true;
-							Transparency = Settings['CT'];
-							Visible = true;
-							ZIndex = 10;
-							
-							Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25)) or (Vector3.new(.5, .5, .5) + part.Size)
-						}
-                        ['Adornee'] = part
-					end
-				end
-            end
-        end
-  	end    
-})
