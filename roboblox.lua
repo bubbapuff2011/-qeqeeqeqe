@@ -54,7 +54,7 @@ local Button = VisualTab:CreateButton({
    Name = "Remove Fog",
    Callback = function()
       game.Lighting.FatasySky:Destroy()
-      game.Lighting.FogEnd = 100000000
+      game.Lighting.FogEnd = 190000000
       game.Lighting.FogStart = 100000000
    end,
 })
