@@ -31,14 +31,14 @@ local Window = Rayfield:CreateWindow({
  local PlayerTab = Window:CreateTab("Player", 4483362458) -- Title, Image
 
  local Slider = PlayerTab:CreateSlider({
-    Name = "WalkSpeed",
-    Range = {10, 100},
-    Increment = 1,
-    Suffix = "Speed",
-    CurrentValue = 16,
+    Name = "Zoom Distance",
+    Range = {200, 100000},
+    Increment = 50,
+    Suffix = "Distance",
+    CurrentValue = 200,
     Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
     Callback = function(Value)
-        game.Players.LocalPlayer.Character.Humanoid:SetAttribute("WalkSpeed", Value)
+        game.Players.LocalPlayer.CameraMaxZoomDistance = Value
     end,
  })
 
