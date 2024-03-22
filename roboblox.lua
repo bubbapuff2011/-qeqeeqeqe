@@ -50,6 +50,15 @@ local Button = VisualTab:CreateButton({
    end,
 })
 
+local Button = VisualTab:CreateButton({
+   Name = "Remove Fog",
+   Callback = function()
+      game.Lighting.FatasySky:Destroy()
+      game.Lighting.FogEnd = 100000000
+      game.Lighting.FogStart = 100000000
+   end,
+})
+
 local Slider = PlayerTab:CreateSlider({
    Name = "WalkSpeed",
    Range = {1, 10},
