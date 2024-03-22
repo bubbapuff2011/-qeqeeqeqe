@@ -1,4 +1,4 @@
--- Nigger Hub
+--epic gamer
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
@@ -43,6 +43,13 @@ local Slider = VisualTab:CreateSlider({
    end,
 })
 
+local Button = VisualTab:CreateButton({
+   Name = "Infinite Observation Radius",
+   Callback = function()
+      game.Players.LocalPlayer.VisionRadius.Value = 100000000
+   end,
+})
+
 local Slider = PlayerTab:CreateSlider({
    Name = "WalkSpeed",
    Range = {1, 10},
@@ -69,10 +76,10 @@ local Slider = PlayerTab:CreateSlider({
 
 local Slider = PlayerTab:CreateSlider({
    Name = "Jump Height",
-   Range = {10, 500},
+   Range = {56, 500},
    Increment = 1,
    Suffix = "Height",
-   CurrentValue = 10,
+   CurrentValue = 56,
    Flag = "Slider3", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
